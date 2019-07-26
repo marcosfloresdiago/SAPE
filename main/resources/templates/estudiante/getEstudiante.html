@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEstudiante}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Información</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h2>Información del alumno</h2>
+		<form>
+		<table class="table table-condensed">
+			<thead>
+				
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						DNI
+					</th>
+					<td th:text="${estudiante.dni}">
+					</td>
+				</tr>	
+				<tr>
+					<th>
+						Nombre
+					</th>
+					<td th:text="${estudiante.nombre}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>
+						Itinerario
+					</th>
+					<td th:text="${estudiante.itinerario}">
+					</td>
+				</tr>	
+				
+				<tr>
+					<th>
+						Número de asignaturas pendientes
+					</th>
+					<td th:text="${estudiante.numasignaturaspendientes4t}">
+					</td>
+				</tr>	
+				
+				<tr>
+					<th>
+						Semestre de inicio de la estancia
+					</th>
+					<td th:text="${estudiante.semestreinicioestancia}">
+					</td>
+				</tr>	
+					
+			</tbody>
+		</table>
+  			<input class="btn btn-default" type="button" value="Volver" onclick="history.back()">
+		</form>
+	</div>
+</body>
+</html>

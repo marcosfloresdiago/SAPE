@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseCCD}"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Preferencias</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Preferencias</h1>
+		<table class="table table-condensed">
+			<tr>
+				<th>DNI estudiante</th>
+				<td th:text="${estudiante.dni}"></td>
+			</tr>
+			<tr>
+				<th>Nombre estudiante</th>
+				<td th:text="${estudiante.nombre}"></td>
+			</tr>
+			<tr>
+				<th>Itinerario</th>
+				<td th:text="${estudiante.itinerario}"></td>
+			</tr>
+		</table>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Orden preferencia</th>
+					<th>Tarea</th>
+					<th>Itinerario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ofertaProyecto,itrStat: ${ofertasPreferencia}">
+					<td th:text="${itrStat.index}">ORDEN</td>
+					<td th:text="${ofertaProyecto.tarea}"></td>
+					<td th:text="${estudiante.itinerario}"></td>
+					<td th:if="${ofertasAsignadas.get(ofertaProyecto.idOferta)}">
+							<p>Asignado</p>
+					</td>
+					<td th:unless="${ofertasAsignadas.get(ofertaProyecto.idOferta)}">
+							<p>No Asignado</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<a class="btn btn-default" onclick="history.back()">Volver</a>
+	</div>
+</body>
+</html>

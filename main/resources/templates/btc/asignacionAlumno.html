@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Asignaciones</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Asignacion</h1>
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Fecha propuesta</th>
+					<th>Estado</th>
+					<th>Nombre Profesor tutor</th>
+					<th>Correo Profesor tutor</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${asignacion.idAsignacion}"></td>
+					<td th:text="${asignacion.fechaPropuesta}"></td>
+					<td th:text="${asignacion.estado}"></td>
+					<!-- Esto es lo que el alumno tiene que poder cambiar -->
+					<td th:text="${profesor}"></td>
+					<td th:text="${correoProfesor}"></td>
+
+					<td>Aceptar</td>
+					<td>Rechazar</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

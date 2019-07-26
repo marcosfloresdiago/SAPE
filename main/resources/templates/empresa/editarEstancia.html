@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEmpresa}"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Editar las instancias</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<h1>Editar la estancia</h1>
+		<form action="#" th:action="@{/empresa//editarEstancia/{idEstancia}(idEstancia=${estancia.idEstancia})}"
+			th:object="${estanciaEditada}" method="post">
+			<h3>Estancia sin modificar</h3>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Email</th>
+						<th>Nombre de la persona de contacto</th>
+						<th>Descripcion</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td th:text="${estancia.emailPersonaContacto}"></td>
+						<td th:text="${estancia.personaContacto}"></td>
+						<td th:text="${estancia.descripcion}"></td>
+					</tr>
+				</tbody>
+
+			</table>
+			<table class="table table-condensed">
+			<h3>Estancia modificada</h3>
+				<thead>
+					<tr>
+						<th>Editar email de la persona de contacto</th>
+						<th>Editar el nombre de la persona de contacto</th>
+						<th>Editar descripcion</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td><input type="text" th:field="*{emailPersonaContacto}" required/></td>
+						<td><input type="text" th:field="*{personaContacto}"  required/></td>
+
+						<td><textarea rows="20" cols="50" maxlength="250"
+								th:field="*{descripcion}" required /></textarea></td>
+					</tr>
+				</tbody>
+
+			</table>
+		
+			<input class="btn btn-default" type="submit" value="Editar estancia" />
+	
+		</form>
+	</div>
+
+
+</body>
+</html>

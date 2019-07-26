@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEstudiante}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<style>
+table td, table td * {
+    vertical-align: top;
+    padding: 15px;
+}
+
+</style>
+
+<title>Mis preferencias</title>
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+		
+		<h1>Mis preferencias</h1>
+		
+		
+		<form action="#" th:action="@{/estudiante/setSemestre}" th:object="${estudiante}"
+			 method="post">
+		
+			<table class="table table-condensed">
+								<tr>
+									<th>Semestre de preferencia</th>
+								</tr>
+								<tr>
+									<td><select name="semestreinicioestancia" class="form-control">
+								<option th:each="semestre:${semestre}" th:text="${semestre}"
+									th:value="${semestre}"></option>
+							</select></td>
+										<td><input type="submit" value="Confirmar Semestre" class="btn btn-default"/></td>	
+							   </tr> 
+			</table>
+		
+		</form>
+		<form action="#" th:action="@{/estudiante/addPreferencia/confirmar}"
+			 method="post">
+			 
+			<table>
+				<tr>
+					<td>
+						<table class="table table-condensed">
+							<tr>
+								<th>Orden</th>
+								<th></th>
+								<th></th>
+								<th>Tarea</th>
+								<th>Empresa</th>						
+							</tr>
+							<tr th:each="ofertaTemporal,itrStat:${ofertasTemporal}">
+								<td th:text="${itrStat.count}"></td>	
+								<td><a class="btn btn-default" th:href="@{/estudiante/addPreferenciaSubir/{posicion}(posicion=${itrStat.index})}" >⬆</a></td>
+								<td><a class="btn btn-default" th:href="@{/estudiante/addPreferenciaBajar/{posicion}(posicion=${itrStat.index})}" >⬇</a></td>
+								<td th:text="${ofertaTemporal.tarea}"></td>
+								<td th:text="${empresa.get(ofertaTemporal.idEstancia).nombre}"></td>
+								<td><a class="btn btn-default" th:href="@{/estudiante/getOferta/{idOferta}(idOferta=${ofertaTemporal.idOferta})}">Más detalles</a></td>	
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="Enviar" class="btn btn-default"/>
+		</form>
+		
+<!--	VERSION ANTERIOR 0.1 BETA
+		<form action="#" th:action="@{/preferenciaAlumno/addPreferencia}"
+			th:object="${preferenciaAlumno}" method="post">
+			<table>
+				<tr>
+					<td><label>Orden</label></td>
+					<td><input type="number" th:field="*{orden}" /></td>
+				</tr>
+				<tr>
+					<td><label for="idOfertaProyecto">Elige la oferta</label></td>
+					<td><select name="idOfertaProyecto" class="form-control">
+							<option th:each="ofertaProyecto:${ofertasProyecto}"
+								th:text="${ofertaProyecto.tarea}"
+								th:value="${ofertaProyecto.idOferta}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit"
+						value="Afegeix preferenciaAlumno" /></td>
+				</tr>
+			</table>
+		</form>
+  -->
+	</div>
+</body>
+</html>

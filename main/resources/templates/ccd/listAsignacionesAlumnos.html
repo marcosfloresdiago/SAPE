@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseCCD}" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Asignaciones alumno</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+	
+		<h1>Lista de asignaciones</h1>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+
+					<th>Id Asignacion</th>
+					<th>DNI</th>
+					<th>Nombre alumno</th>
+					<th>Fecha Propuesta</th>
+					<th>Fecha Aceptacion</th>
+					<th>Fecha Rechazo</th>
+					<th>Fecha Traspaso Iglu</th>
+					<th>Estado</th>
+					<th>Id Oferta Proyecto</th>
+					<th>Dni profesor Asignado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="asignacion: ${asignaciones}">
+					<td th:text=${asignacion.idAsignacion}></td>
+					<td th:text=${asignacion.dniEstudianteAsignado}></td>
+					<td th:text=${asignacion.nombreEstudiante}></td>
+					<td th:text="${asignacion.fechaPropuesta}"></td>
+					<td th:text="${asignacion.fechaAceptacion}"></td>
+					<td th:text="${asignacion.fechaRechazo}"></td>
+					<td th:text="${asignacion.fechaTraspasoIGLU}"></td>
+					<td th:text="${asignacion.estado}"></td>
+					<td th:text="${asignacion.idOfertaProyecto}"></td>
+					<td th:text="${asignacion.dniProfesorAsignado}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

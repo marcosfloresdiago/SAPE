@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEmpresa}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Estancias de la empresa</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>
+			Lista de estancias 
+		</h1>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Persona de contacto</th>
+					<th>Email de la persona de contacto</th>
+					<th>Descripción</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estancia, iterStat: ${estancias}">
+					<td th:text="${estancia.idEstancia}"></td>
+					<td th:text="${estancia.personaContacto}"></td>
+					<td th:text="${estancia.emailPersonaContacto}"></td>
+					<td th:text="${estancia.descripcion}"></td>
+					<td><a class="btn btn-default"
+						th:href="@{/empresa/editarEstancia/{idEstancia}(idEstancia=${estancia.idEstancia})}">Editar estancia</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

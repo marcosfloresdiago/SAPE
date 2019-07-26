@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseTutor}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Asignaciones</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h2>Asignaciones</h2>
+		
+		<div th:if="${error}">
+			<div class="alert alert-info">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		<div th:if="${informacion}">
+			<div class="alert alert-info">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		<div th:if="${correcto}">
+			<div class="alert alert-success">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		<table class="table table-condensed" th:each="asignacion: ${asignaciones}">
+			<tbody>
+						
+					<tr>
+						<th>Nombre del alumno asignado</th>
+						<td th:text="${profesores.get(asignacion.idAsignacion).nombre}"></td>
+					</tr>
+					<tr>
+	
+						<th>DNI</th>
+						<td th:text=${asignacion.dniEstudianteAsignado}></td>
+					</tr>
+					<tr>
+				
+						<th>Estado</th>
+						<td th:text="${asignacion.estado}"></td>
+				
+					</tr>
+					
+					<tr>
+						<th>Id de la oferta</th>
+						<td th:text="${asignacion.idOfertaProyecto}"></td>
+					</tr>
+					<tr>
+				
+						<th>Objetivo</th>
+						<td th:text="${ofertas.get(asignacion.idAsignacion).objetivo}"></td>
+				
+					</tr>
+					<tr>
+						<th>Empresa</th>
+						<td th:text="${empresas.get(asignacion.idAsignacion).nombre}"></td>
+				
+					</tr>
+					<tr>
+			
+						<th>Lugar</th>
+						<td th:text="${empresas.get(asignacion.idAsignacion).domicilio}"></td>
+					</tr>
+					
+			
+			</tbody>
+		</table>
+		  		<input class="btn btn-default" type="button" value="Volver" onclick="history.back()">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Preferencias</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<h1>Preferencias</h1>
+		
+		<div th:if="${visibles}">
+			<div class="alert alert-success">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+
+		<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Orden</th>
+						<th>Dni</th>
+						<th>Nombre</th>
+						<th>Itinerario</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="estudiante: ${estudiantes}">
+						<td th:text="${estudiante.orden}"></td>
+						<td th:text="${estudiante.dni}"></td>
+						<td th:text="${estudiante.nombre}"></td>
+						<td th:text="${estudiante.itinerario}"></td>
+						<td><a class="btn btn-default" th:href="@{/btc/preferenciasEstudiante/{dniEstudiante}(dniEstudiante=${estudiante.dni})}">Ver preferencias y asignar</a></td>
+						
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</body>
+</html>

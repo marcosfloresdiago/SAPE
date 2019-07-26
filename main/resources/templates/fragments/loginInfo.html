@@ -1,0 +1,12 @@
+<!--  PArte izquierda de la nav bar -->
+
+<ul class="nav navbar-nav navbar-right">
+	<li><a href="/estudiante/getEstudiante"><span class="glyphicon glyphicon-user"></span>
+	</a></li>
+
+	<li><a href="/"><div class="loggeduser" th:object="${session}">
+				Autenticado como <span th:text="*{user.username}"></span>
+			</div></a></li>
+	<li><a href="/logout.html" th:href="@{/logout.html}"><span
+			class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+</ul>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEstudiante}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Oferta</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h2>Oferta</h2>
+		<form>
+		<table class="table table-condensed">
+			<thead>
+				
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						Id oferta
+					</th>
+					<td th:text="${oferta.idOferta}">
+					</td>
+				</tr>	
+				<tr>
+					<th>
+						Tarea
+					</th>
+					<td th:text="${oferta.tarea}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>
+						Objetivo
+					</th>
+					<td th:text="${oferta.objetivo}">
+					</td>
+				</tr>	
+				
+				<tr>
+					<th>
+						Descripción
+					</th>
+					<td th:text="${estancia.descripcion}">
+					</td>
+				</tr>	
+				
+				<tr>
+					<th>
+						Estado
+					</th>
+					<td th:text="${oferta.estado}">
+					</td>
+				</tr>	
+				
+				<tr>
+					<th>
+						Fecha alta
+					</th>
+					<td th:text="${oferta.fechaAlta}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>
+						Fecha ultimo cambio
+					</th>
+					<td th:text="${oferta.fechaUltimoCambio}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>
+						Itinerario
+					</th>
+					<td th:text="${oferta.itinerario}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>
+						Nombre de la empresa
+					</th>
+					<td th:text="${empresa.nombre}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>
+						Lugar de la estancia
+					</th>
+					<td th:text="${empresa.domicilio}">
+					</td>
+				</tr>					
+					
+			</tbody>
+		</table>
+  			<input class="btn btn-default" type="button" value="Volver a las ofertas" onclick="history.back()">
+		</form>
+	</div>
+</body>
+</html>

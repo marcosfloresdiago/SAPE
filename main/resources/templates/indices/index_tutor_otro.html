@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>EI1027</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#home">Vista
+				BTC</a></li>
+		<li><a data-toggle="tab" href="#empresas">Empresas</a></li>
+		<li><a data-toggle="tab" href="#alumnos">Alumnos</a></li>
+		<li><a data-toggle="tab" href="#ofertas">Ofertas de anulacion</a></li>
+		<li><a data-toggle="tab" href="#asignaciones">Asignaciones</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="home" class="tab-pane fade in active">
+			<h3>Vista BTC</h3>
+			<p>Editar cosis</p>
+		</div>
+
+		<div id="empresas" class="tab-pane fade">
+			<h3>Menu Empresas</h3>
+			<ul>
+				<li><a href="ruta">Ver Empresas</a></li>
+				<li><a href="ruta">Ver ofertas de empresa</a></li>
+				<li><a href="ruta">Editar ofertas para hacer visibles</a></li>
+			</ul>
+		</div>
+
+		<div id="alumnos" class="tab-pane fade">
+			<h3>Menu Alumnos</h3>
+			<ul>
+				<li><a href="ruta">Preferencias Alumno</a></li>
+				<li><a href="ruta">Preferencias de estudiantes</a></li>
+			</ul>
+		</div>
+		
+		<div id="ofertas" class="tab-pane fade">
+			<h3>Menu Ofertas</h3>
+			<ul>
+				<li><a href="ruta">Editar estado de oferta pero no hacer
+						visible.</a></li>
+				<li><a href="ruta">Aceptar ofertas de anulacion</a></li>
+				<li><a href="ruta">Editar ofertas de anulacion</a></li>
+				<li><a href="ruta">Editar ofertas para hacer visibles</a></li>
+			</ul>
+		</div>
+		<div id="asignaciones" class="tab-pane fade">
+			<h3>Menu Asignaciones</h3>
+			<ul>
+
+				<li><a href="ruta">Crear asignacion</a></li>
+				<li><a href="ruta">Modificar asignacion</a></li>
+				<li><a href="ruta">Consulatar asignacion</a></li>
+				<li><a href="ruta">Anular asignacion</a></li>
+
+			</ul>
+
+		</div>
+	</div>
+	<div th:replace="fragments/logininfo"></div>
+
+</body>
+</html>

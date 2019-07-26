@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title layout:title-pattern="$CONTENT_TITLE">SAPE</title>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+	<div>
+
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#myNavbar">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/login">Tutor</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="/tutor/listOfertas">Ver ofertas</a></li>
+						<li><a href="/tutor/listAsignaciones">Ver asignaciones</a></li>
+					</ul>
+					<div th:replace="fragments/loginInfo">Información del usuario</div>
+				</div>
+			</div>
+		</nav>
+
+		<div layout:fragment="content"></div>
+
+		<div th:replace="fragments/footer">Pie de página</div>
+
+
+	</div>
+</body>
+</html>

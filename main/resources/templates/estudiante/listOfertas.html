@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEstudiante}" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Estudiantes</title>
+  
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Lista de Ofertas</h1>
+		<div th:if="${error}">
+			<div class="alert alert-danger">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		<div th:if="${correcto}">
+			<div class="alert alert-success">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		<div th:if="${semestre}">
+			<div class="alert alert-success">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		<form action="#" th:action="@{/estudiante/addPreferenciaPost}"
+			method="post">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Marcar</th>
+						<th>Empresa</th>
+						<th>Tarea</th>
+						<th>Itinerario</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ofertaProyecto: ${ofertasProyecto}">
+						<td><input type="checkbox" th:value="${ofertaProyecto.idOferta}" name="checkbox" th:checked="${seleccionados.get(ofertaProyecto.idOferta)}" ></td>
+						<td th:text="${empresas.get(ofertaProyecto.idEstancia).nombre}"></td>
+						<td th:text="${ofertaProyecto.tarea}"></td>
+						<td th:text="${ofertaProyecto.itinerario}"></td>
+						<td><a class="btn btn-default" th:href="@{/estudiante/getOferta/{idOferta}(idOferta=${ofertaProyecto.idOferta})}">Más detalles</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<input class="btn btn-default" type="submit" value="Añadir preferencias">
+		</form>
+	</div>
+</body>
+</html>

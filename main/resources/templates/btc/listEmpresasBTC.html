@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Listar Empresas</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Lista empresas</h1>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Cif</th>
+					<th>Domicilio</th>
+					<th>Telefono</th>
+					<th>Email</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="empresa: ${empresas}">
+					<td th:text="${empresa.nombre}"></td>
+					<td th:text="${empresa.cif}"></td>
+					<td th:text="${empresa.domicilio}"></td>
+					<td th:text="${empresa.TelefonoPrincipal}"></td>
+					<td th:text="${empresa.Email}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+
+<title>Listar Ofertas</title>
+<script>
+function sortTable(n) {
+	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	  table = document.getElementById("myTable");
+	  switching = true;
+	  //Set the sorting direction to ascending:
+	  dir = "asc"; 
+	  /*Make a loop that will continue until
+	  no switching has been done:*/
+	  while (switching) {
+	    //start by saying: no switching is done:
+	    switching = false;
+	    rows = table.getElementsByTagName("TR");
+	    /*Loop through all table rows (except the
+	    first, which contains table headers):*/
+	    for (i = 1; i < (rows.length - 1); i++) {
+	      //start by saying there should be no switching:
+	      shouldSwitch = false;
+	      /*Get the two elements you want to compare,
+	      one from current row and one from the next:*/
+	      x = rows[i].getElementsByTagName("TD")[n];
+	      y = rows[i + 1].getElementsByTagName("TD")[n];
+	      /*check if the two rows should switch place,
+	      based on the direction, asc or desc:*/
+	      if (dir == "asc") {
+	        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+	          //if so, mark as a switch and break the loop:
+	          shouldSwitch= true;
+	          break;
+	        }
+	      } else if (dir == "desc") {
+	        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+	          //if so, mark as a switch and break the loop:
+	          shouldSwitch = true;
+	          break;
+	        }
+	      }
+	    }
+	    if (shouldSwitch) {
+	      /*If a switch has been marked, make the switch
+	      and mark that a switch has been done:*/
+	      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+	      switching = true;
+	      //Each time a switch is done, increase this count by 1:
+	      switchcount ++;      
+	    } else {
+	      /*If no switching has been done AND the direction is "asc",
+	      set the direction to "desc" and run the while loop again.*/
+	      if (switchcount == 0 && dir == "asc") {
+	        dir = "desc";
+	        switching = true;
+	      }
+	    }
+	  }
+	}
+function myFunction() {
+var input, filter, table, tr, td, i;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTable");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+	 
+  td = tr[i].getElementsByTagName("td")[0];
+  if (td) {
+    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    	}
+  	}       
+	
+}	
+}
+
+
+</script>
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<h1>Lista de Ofertas</h1>
+		
+		<div th:if="${visibles}">
+			<div class="alert alert-success">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+		
+		<table style="width:100%">
+		<tr>
+		<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre de empresa" title="Type in a name" style="width:50%"></td>
+		<td style="text-align:right"><div style="text-align:right"><a class="btn btn-default"  th:href="@{/btc/setVisibles}">Hacer visibles todas las ofertas aceptadas</a></div></td>
+		</tr>
+		</table>
+		<table class="table table-condensed" id="myTable">
+				<thead>
+					<tr>
+						<th onclick="sortTable(0)">Empresa</th>
+						<th onclick="sortTable(1)">Tarea</th>
+						<th onclick="sortTable(2)">Itinerario</th>
+						<th onclick="sortTable(3)">Estado</th>
+					
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ofertaProyecto: ${ofertasProyecto}">
+						<td th:text="${empresas.get(ofertaProyecto.idEstancia).nombre}"></td>
+						<td th:text="${ofertaProyecto.tarea}"></td>
+						<td th:text="${ofertaProyecto.itinerario}"></td>
+						<td th:text="${ofertaProyecto.estado}"></td>
+					
+						<td><a class="btn btn-default" th:href="@{/btc/getOfertaBTC/{idOferta}(idOferta=${ofertaProyecto.idOferta})}">Más detalles</a></td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</body>
+</html>

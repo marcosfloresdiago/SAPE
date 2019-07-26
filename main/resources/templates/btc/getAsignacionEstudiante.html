@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Asignacion</title>
+<meta charset="UTF-8" />
+
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h2>Asignacion</h2>
+		<table class="table table-condensed">
+			<tr>
+				<td><label>Id oferta</label></td>
+				<td th:text="${asignacion.idAsignacion}"></td>
+			</tr>
+			<tr>
+				<td><label>Fecha propuesta</label></td>
+				<td th:text="${asignacion.fechaPropuesta}"></td>
+			</tr>
+			<tr>
+				<td><label>Fecha Aceptacion</label></td>
+				<td th:text="${asignacion.fechaAceptacion}"></td>
+			</tr>
+			<tr>
+				<td><label>Fecha Rechazo</label></td>
+				<td th:text="${asignacion.fechaRechazo}"></td>
+			</tr>
+			<tr>
+				<td><label>Fecha traspaso IGLU</label></td>
+				<td th:text="${asignacion.fechaTraspasoIGLU}"></td>
+			</tr>
+			<tr>
+				<td><label>Estado</label></td>
+				<td th:text="${asignacion.estado}"></td>
+			</tr>
+			<tr>
+				<td><label>Id oferta proyecto</label></td>
+				<td th:text="${asignacion.idOfertaProyecto}"></td>
+			</tr>
+			<tr>
+				<td><label>DNI profesor asignado</label></td>
+				<td th:text="${asignacion.dniProfesorAsignado}"></td>
+
+			</tr>
+			<tr>
+				<td><label>DNI estudiante asignado</label></td>
+				<td th:text="${asignacion.dniEstudianteAsignado}"></td>
+			</tr>
+		</table>
+		  <a class="btn btn-default" onclick="history.back()">Volver</a></td>
+		
+	</div>
+</body>
+</html>

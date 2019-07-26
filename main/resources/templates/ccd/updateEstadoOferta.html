@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseCCD}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+
+
+<title>Modifica una oferta</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+
+		<h2>Oferta</h2>
+		<form action="#" th:action="@{/ccd/updateEstadoOferta}"
+			th:object="${oferta}" method="post">
+			<table>
+				<tr>
+					<td><label>Id oferta</label></td>
+					<td><input type="text" th:field="*{idOferta}" readonly="" /></td>
+				</tr>
+				<tr>
+					<td><label>Tarea</label></td>
+					<td><input type="text" th:field="*{tarea}" /></td>
+				</tr>
+				<tr>
+					<td><label>Objetivo</label></td>
+					<td><input type="text" th:field="*{objetivo}" /></td>
+				</tr>
+				<tr>
+					<td><label>Fecha Alta</label></td>
+					<td><input type="text" th:field="*{fechaAlta}" readonly="" /></td>
+				</tr>
+				<tr>
+					<td><label>Fecha ultimo cambio</label></td>
+					<td><input type="text" th:field="*{fechaUltimoCambio}"
+						readonly="" /></td>
+				</tr>
+				<tr>
+					<td><label>Itinerario</label></td>
+					<td><select name="itinerario" class="form-control">
+							<option th:each="itinerario:${itinerarios}" th:text="${itinerario.nombre}"
+								th:value="${itinerario.nombre}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Id estancia</label></td>
+					<td><input type="text" th:field="*{idEstancia}" readonly="" /></td>
+				</tr>
+				<tr>
+					<td><label>Estado</label></td>
+					<td><select name="estado" class="form-control">
+							<option th:each="estado:${estados}" th:text="${estado.estado}"
+								th:value="${estado.estado}"></option>
+					</select></td>
+
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Modificar oferta" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

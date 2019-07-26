@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseCCD}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Listar Ofertas</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<h1>Lista de Ofertas</h1>
+
+		<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Empresa</th>
+						<th>Tarea</th>
+						<th>Itinerario</th>
+						<th>Estado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ofertaProyecto: ${ofertasProyecto}">
+						<td th:text="${empresas.get(ofertaProyecto.idEstancia).nombre}"></td>
+						<td th:text="${ofertaProyecto.tarea}"></td>
+						<td th:text="${ofertaProyecto.itinerario}"></td>
+						<td th:text="${ofertaProyecto.estado}"></td>
+						<td><a class="btn btn-default" th:href="@{/ccd/getOfertaCCD/{idOferta}(idOferta=${ofertaProyecto.idOferta})}">Más detalles</a></td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</body>
+</html>

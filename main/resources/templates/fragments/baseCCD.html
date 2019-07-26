@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title layout:title-pattern="$CONTENT_TITLE">SAPE</title>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body class="container">
+	<div>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#myNavbar">
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+						<spanclass="icon-bar"> </span>
+					</button>
+					<a class="navbar-brand" href="#"></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/login">Menu CCD</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Menu Empresas <span
+								class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/ccd/listEmpresasCCD">Ver Empresas</a></li>
+								<li><a href="/ccd/listOfertasCCD">Ver ofertas de
+										empresa</a></li>
+
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Menu Estudiantes <span
+								class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/ccd/listPreferenciasAlumno">Preferencias
+										alumnos</a></li>
+								<li><a href="/ccd/listAsignacionesAlumnos">Asignaciones
+										del estudiante</a></li>
+							</ul></li>
+
+					</ul>
+					<div th:replace="fragments/loginInfo">Informacuon usuario</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+
+	<div layout:fragment="content"></div>
+
+	<div th:replace="fragments/footer">Pie de pagina</div>
+</body>
+</html>

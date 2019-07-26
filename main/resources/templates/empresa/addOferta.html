@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseEmpresa}"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Realizar ofertas</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<h2>Realizar oferta</h2>
+		<form action="#" th:action="@{/empresa/addOferta}" method="post">
+			<table class="table table-condensed">
+				<tr>
+
+					<th>Email de la persona de contacto</th>
+					<td><input type="text"
+						th:value="${estancia.emailPersonaContacto}"
+						name="emailPersonaContacto" required /></td>
+					<th>Nombre de la persona de contacto</th>
+					<td><input type="text" th:value="${estancia.personaContacto}"
+						name="personaContacto" required /></td>
+
+
+				</tr>
+				<tr>
+
+					<th>Tarea</th>
+					<td><textarea rows="10" cols="50" maxlength="500"
+							th:value="${oferta.tarea}" name="tarea" required /></textarea>
+					<th>Objetivo</th>
+					<td><textarea rows="10" cols="50" maxlength="500"
+							th:value="${oferta.objetivo}" name="objetivo" required /></textarea>
+				</tr>
+				<tr>
+					<td><label>Itinerario</label></td>
+					<td><select name="itinerario" class="form-control">
+							<option th:each="itinerario:${itinerarios}"
+								th:text="${itinerario.nombre}" th:value="${itinerario.nombre}"></option>
+					</select></td>
+					<th>Descripción de la estancia</th>
+					<td><textarea rows="10" cols="50" maxlength="250"
+							th:value="${estancia.descripcion}" name="descripcion" required /></textarea></td>
+				</tr>
+
+			</table>
+
+
+			<input class="btn btn-default" type="submit" value="Crear estancia" />
+
+
+		</form>
+	</div>
+</body>
+</html>

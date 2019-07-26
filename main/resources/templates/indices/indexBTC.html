@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}">
+<head>
+
+<title>EI1027</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>
+			<b>Menú de BTC</b>
+		</h1>
+		<ul class="list-group">
+			<li class="list-group-item">
+
+				<h2>
+					<ins>Menu empresas:</ins>
+				</h2>
+				<p>Aquí encontrarás todos lo relacionado con la gestión de las empresas que están registradas en el sistema SAPE.</p>
+				<ul class="well well-sm">
+					<li><h4>
+							<a href="/btc/listEmpresasBTC">Ver Empresas</a>:
+						</h4>
+						<p>Ver todas las empresas que tienen registro actualmente en SAPE.</p></li>
+					<li><h4>
+							<a href="/btc/listOfertasBTC">Ver ofertas de empresa</a>:
+						</h4>
+						<p>Listar todas las ofertas que las empresas han registrado.</p></li>
+				</ul>
+			</li>
+			<li class="list-group-item">
+
+				<h2>
+					<ins>Menu de alumnos:</ins>
+				</h2>
+				<p>Aquí encontrarás todos lo relacionado con la gestión de los alumnos del curso lectivo actual.</p>
+				<ul class="well well-sm">
+					<li><h4>
+							<a href="/btc/listPreferenciasAlumnoBTC">Preferencias de los alumnos</a>:
+						</h4>
+						<p>Ver por cada alumno el orden de las preferencias seleccionadas.</p></li>
+				</ul>
+			</li>
+					<li class="list-group-item">
+				<h2>
+					<ins>Menu de asignaciones:</ins>
+				</h2>
+				<p>Aquí encontrarás todos lo relacionado con la gestión de las asignaciones de los estudiantes, ofertas y tutores.</p>
+				<ul class="well well-sm">
+					<li><h4>
+							<a href="#">Listar asignaciones</a>:
+						</h4>
+						<p>Listar todas las asignaciones realizadas junto con el alumno, la oferta y el tutor de dicha asignación.</p></li>
+						<p>Modificar y/o eliminar una asignación </p></li>
+				</ul>
+			</li>
+
+		</ul>
+	</div>
+</body>
+</html>

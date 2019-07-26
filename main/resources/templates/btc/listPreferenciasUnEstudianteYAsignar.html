@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Preferencias y asignar</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Preferencias y asignar</h1>
+		<table class="table table-condensed">
+			<tr>
+				<th>DNI estudiante</th>
+				<td th:text="${estudiante.dni}"></td>
+			</tr>
+			<tr>
+				<th>Nombre estudiante</th>
+				<td th:text="${estudiante.nombre}"></td>
+			</tr>
+			<tr>
+				<th>Itinerario</th>
+				<td th:text="${estudiante.itinerario}"></td>
+			</tr>
+		</table>
+
+		<h2>Preferencias</h2>
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Orden preferencia</th>
+					<th>Tarea</th>
+					<th>Itinerario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ofertaProyecto,itrStat: ${ofertasPreferencia}">
+					<td th:text="${itrStat.count}">ORDEN</td>
+					<td th:text="${ofertaProyecto.tarea}"></td>
+					<td th:text="${estudiante.itinerario}"></td>
+					<td>
+					<div th:if="${ofertasAsignadasAlEstudiante.get(ofertaProyecto.idOferta)}">
+							<p>Asignado</p>
+					
+					</div>
+					
+					<div th:if="${ofertasAsignadas.get(ofertaProyecto.idOferta)}">
+							<p>Propuesta a otro estudiante</p>
+					</div>
+					<div th:unless="${ofertasAsignadas.get(ofertaProyecto.idOferta)}">
+						<div th:unless="${ofertasAsignadasAlEstudiante.get(ofertaProyecto.idOferta)}">
+							<div th:unless="${deshabilitado}">
+								<a class="btn btn-default" th:href="@{/btc/addAsignacion/{idOferta}(idOferta=${ofertaProyecto.idOferta})}" >Crear asignacion</a>
+							</div>
+							<div th:if="${deshabilitado}">
+								<a class="btn btn-default" disabled >Crear asignacion</a>
+							</div>
+						</div>
+					</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>OfertasNominativas</h2>
+			<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Orden</th>
+					<th>Tarea</th>
+					<th>Itinerario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ofertaProyecto,itrStat: ${ofertasNominativas}">
+					<td th:text="${itrStat.count}">ORDEN</td>
+					<td th:text="${ofertaProyecto.tarea}"></td>
+					<td th:text="${estudiante.itinerario}"></td>
+					<td th:if="${ofertasAsignadasAlEstudiante.get(ofertaProyecto.idOferta)}">
+							<p>Asignado</p>
+					</td>
+					<div th:unless="${ofertasAsignadasAlEstudiante.get(ofertaProyecto.idOferta)}" >
+						<td th:unless="${ofertasAsignadas.get(ofertaProyecto.idOferta)}">
+							<p th:unless="${deshabilitado}">
+								<a class="btn btn-default" th:href="@{/btc/addAsignacion/{idOferta}(idOferta=${ofertaProyecto.idOferta})}" >Crear asignacion</p></a>
+							</p>
+							<p th:if="${deshabilitado}">
+								<a class="btn btn-default" disabled >Crear asignacion</p></a>
+							</p>
+						</td>
+					</div>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-default" th:href="@{/btc/listPreferenciasAlumnoBTC}">Volver</a>
+	</div>
+</body>
+</html>

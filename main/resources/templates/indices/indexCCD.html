@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseCCD}">
+  <head>
+    <title>CCD</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style></style>
+  </head>
+ <body>
+	<div layout:fragment="content">
+		<h1>
+			<b>Menú de CCD</b>
+		</h1>
+		<ul class="list-group">
+			<li class="list-group-item">
+
+				<h2>
+					<ins>Gestión empresas:</ins>
+				</h2>
+				<p>Aquí encontrarás todos lo relacionado con la gestión de las empresas que están registradas en el sistema SAPE.</p>
+				<ul class="well well-sm">
+					<li><h4>
+							<a href="/ccd/listEmpresasCCD">Listar Empresas</a>:
+						</h4>
+						<p>Ver todas las empresas que tienen registro actualmente en SAPE.</p></li>
+					<li><h4>
+							<a href="/ccd/listOfertasCCD">Ver ofertas de empresa</a>:
+						</h4>
+						<p>Listar todas las ofertas que las empresas han registrado.</p></li>
+				</ul>
+			</li>
+			<li class="list-group-item">
+
+				<h2>
+					<ins>Gestión de Estudiantes:</ins>
+				</h2>
+				<p>Aquí encontrarás todos lo relacionado con la gestión de los estudiantes del curso lectivo actual.</p>
+				<ul class="well well-sm">
+					<li><h4>
+							<a href="/ccd/listPreferenciasAlumno">Preferencias de los alumnos</a>:
+						</h4>
+						<p>Ver por cada alumno el orden de las preferencias seleccionadas.</p></li>
+					<li><h4>
+							<a href="/ccd/listAsignacionesAlumnos">Asignaciones de estudiante</a>:
+						</h4>
+						<p>Ver todos los estudiantes junto con la oferta y tutor asignados.</p></li>
+				</ul>
+			</li>
+
+		</ul>
+	</div>
+</body>
+</html>

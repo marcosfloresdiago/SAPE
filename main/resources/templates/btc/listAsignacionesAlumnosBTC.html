@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/baseBTC}" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Preferencias alumno</title>
+
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>Lista de asignaciones</h1>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+
+					<th>Id Asignacion</th>
+					<th>DNI</th>
+					<th>Estado</th>
+					<th>Id Oferta Proyecto</th>
+					<th>Dni profesor Asignado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="asignacion: ${asignaciones}">
+					<td th:text=${asignacion.idAsignacion}></td>
+					<td th:text=${asignacion.dniEstudianteAsignado}></td>
+					<td th:text="${asignacion.estado}"></td>
+					<td th:text="${asignacion.idOfertaProyecto}"></td>
+					<td th:text="${asignacion.dniProfesorAsignado}"></td>
+					<td><a class="btn btn-default"
+						th:href="@{/btc/getAsignacionEstudiante/{asignacion}(asignacion=${asignacion.idAsignacion})}">Mas
+							detalles</a></td>
+					<td><a class="btn btn-default"
+						th:href="@{/btc/updateAsignacion/{idasignacion}(idasignacion=${asignacion.idAsignacion})}">Modificar</a></td>
+					<td><a class="btn btn-default"
+						th:href="@{/btc/deleteAsignacion/{idasignacion}(idasignacion=${asignacion.idAsignacion})}">Eliminar</a></td>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
